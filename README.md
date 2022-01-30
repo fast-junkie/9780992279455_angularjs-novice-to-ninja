@@ -9,4 +9,7 @@ This was done as part of a self imposed read and code along... of _&quot;OLD&quo
 
 > :bangbang: **Note:**  
 > I do not follow the rules of the author or adhere to file and api versions...  
-> Fair warning... _I just wing it._
+> Fair warning... _I just wing it._  
+>
+> The book stated: `AngularJS 1.2.16`  
+> I used: `AngularJS 1.8.2` (see `package.json`)
