@@ -1,0 +1,4 @@
+body, select, input, button, textarea {
+  font-family: 'Source Code Pro', monospace !important;
+  font-size: 0.8rem;
+}

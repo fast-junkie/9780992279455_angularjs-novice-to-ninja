@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="fj.app">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <title></title>
+  </head>
+  <body ng-controller="mainController">
+    
+    <div class="loader" ng-if="!loaded">
+      <img src="/assets/img/loading.svg" alt="loading...">
+    </div>
+    <div class="container" ng-if="loaded">
+      <h1 ng-bind="bookTitle"></h1>
+    </div>
+    
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/assets/vendor/angular/angular.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

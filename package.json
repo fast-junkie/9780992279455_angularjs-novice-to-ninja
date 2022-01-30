@@ -1,0 +1,26 @@
+{
+  "name": "9781783280339_angularjs-directives",
+  "version": "0.6.5",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "DEBUG=angularjs,angularjs:* nodemon server.js",
+    "test": "jest --coverage"
+  },
+  "author": "Fast Junkie",
+  "license": "copyleft-next-0.3.1",
+  "dependencies": {
+    "angular": "1.8.2",
+    "debug": "4.3.3",
+    "express": "4.17.2",
+    "jquery": "3.6.0",
+    "morgan": "1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "8.7.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.25.4",
+    "jest": "27.4.7",
+    "nodemon": "2.0.15"
+  }
+}
