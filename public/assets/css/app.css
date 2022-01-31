@@ -1,0 +1,22 @@
+body, button, input, select, textarea {
+  font: normal 0.8rem 'Source Code Pro', monospace !important;
+}
+
+button {
+  cursor: pointer;
+}
+
+footer {
+  border-top: 1px dotted rgba(33, 33, 33, 0.3);
+  margin: 1.3rem 0.3rem;
+  padding: 0.4rem;
+}
+
+.container {
+  display: none;
+  margin: 1.3rem;
+}
+input.test {
+  text-align: right;
+  width: 5rem;
+}

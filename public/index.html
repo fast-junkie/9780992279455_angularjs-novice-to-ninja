@@ -5,20 +5,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/app.css">
     <title></title>
   </head>
-  <body ng-controller="mainController">
+  <body ng-controller="mainController as vm">
     
-    <div class="loader" ng-if="!loaded">
-      <img src="/assets/img/loading.svg" alt="loading...">
+    <div class="loader" ng-if="!vm.loaded">
+      <img src="./assets/img/loading.svg" alt="loading...">
     </div>
-    <div class="container" ng-if="loaded">
-      <h1 ng-bind="bookTitle"></h1>
+    <div class="container">
+      <h1 ng-bind="vm.bookTitle"></h1>
+      <dl>
+        <dt>Chapter 01</dt>
+        <dd>
+          Falling In Love With AngularJS
+          <ol>
+            <li><a href="./test.html">The Anatomy of an AngularJS app</a></li>
+          </ol>
+        </dd>
+      </dl>
     </div>
     
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script src="/assets/vendor/angular/angular.min.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/controllers/mainController.js"></script>
   </body>
 </html>
