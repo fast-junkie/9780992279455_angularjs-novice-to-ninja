@@ -2,25 +2,45 @@
   "name": "9781783280339_angularjs-directives",
   "version": "0.6.5",
   "private": true,
-  "main": "server.js",
-  "scripts": {
-    "start": "DEBUG=angularjs,angularjs:* nodemon server.js",
-    "test": "jest --coverage"
-  },
-  "author": "Fast Junkie",
-  "license": "copyleft-next-0.3.1",
+  "description": "Mutalated angular-seed",
+  "repository": "https://github.com/fast-junkie/9780992279455_angularjs-novice-to-ninja",
+  "license": "MIT",
   "dependencies": {
-    "angular": "1.8.2",
-    "debug": "4.3.3",
-    "express": "4.17.2",
-    "jquery": "3.6.0",
-    "morgan": "1.10.0"
+    "angular": "^1.8.2",
+    "angular-loader": "^1.8.2",
+    "angular-route": "^1.8.2",
+    "html5-boilerplate": "^8.0.0",
+    "jquery": "3.6.0"
   },
   "devDependencies": {
-    "eslint": "8.7.0",
-    "eslint-config-airbnb-base": "15.0.0",
-    "eslint-plugin-import": "2.25.4",
-    "jest": "27.4.7",
-    "nodemon": "2.0.15"
+    "angular-mocks": "^1.8.2",
+    "cpx": "^1.5.0",
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "http-server": "^14.1.0",
+    "jasmine-core": "^4.0.0",
+    "karma": "^6.3.12",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-firefox-launcher": "^2.1.2",
+    "karma-jasmine": "^4.0.1",
+    "protractor": "^7.0.0"
+  },
+  "scripts": {
+    "postinstall": "npm run copy-libs",
+    "update-deps": "npm update",
+    "postupdate-deps": "npm run copy-libs",
+    "copy-libs": "cpx \"node_modules/{angular,angular-*,html5-boilerplate/dist,jquery/dist}/**/*\" app/lib -C",
+    "prestart": "npm install",
+    "start": "http-server -a 192.168.2.101 -p 8000 -c-1 ./app",
+    "pretest": "npm install",
+    "test": "karma start karma.conf.js",
+    "test-single-run": "npm test -- --single-run",
+    "preupdate-webdriver": "npm install",
+    "//": "Do not install the Firefox driver to work around https://github.com/angular/webdriver-manager/issues/303.",
+    "update-webdriver": "webdriver-manager update --gecko false",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor e2e-tests/protractor.conf.js",
+    "update-index-async": "node --eval \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/lib/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=lib/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\""
   }
 }

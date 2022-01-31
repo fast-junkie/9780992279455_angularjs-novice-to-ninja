@@ -1,10 +1,13 @@
-(() => {
-  angular
-    .module('fj.app.controllers')
-    .controller('financeController', financeController);
+angular.module('myApp.view2', ['ngRoute'])
 
-  financeController.$inject = ['$interval'];
-  function financeController($interval) {
+  .config(['$routeProvider', ($routeProvider) => {
+    $routeProvider.when('/view2', {
+      templateUrl: 'view2/view2.html',
+      controller: 'View2Ctrl as vm',
+    });
+  }])
+
+  .controller('View2Ctrl', ['$interval', function _view2Ctrl($interval) {
     const vm = this;
     vm.loaded = false;
     vm.bookTitle = 'AngularJS Novice To Ninja';
@@ -25,5 +28,4 @@
     function _result() {
       return vm.salary * vm.percentage * 0.01;
     }
-  }
-})();
+  }]);

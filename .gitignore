@@ -1,4 +1,7 @@
-x00/
-
-node_modules
-package-lock.json
+logs/*
+!.gitkeep
+node_modules/
+app/lib/
+tmp
+.DS_Store
+.idea
