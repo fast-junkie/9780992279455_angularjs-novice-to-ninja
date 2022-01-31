@@ -10,5 +10,11 @@ This was done as part of a self imposed read and code along... of _&quot;OLD&quo
 > :bangbang: **Note:**  
 > I do not follow the rules of the author or adhere to file and api versions...  
 > Fair warning... _I just wing it._  
-
-Using [angular-seed](https://github.com/angular/angular-seed)... added an `.eslintrc` with `airbnb-base` and switch testing browser to `firefox`... also opted to upgrade all dependancies to latest.
+>
+> Using [angular-seed](https://github.com/angular/angular-seed)... linting with:  
+> `"eslint" : { "eslint-config-airbnb-base": "^15.0.0" }`  
+>
+> Switched testing browser to:  
+> `"firefox": { "karma-firefox-launcher": "^2.1.2", }`  
+>
+> Opted to upgrade all dependancies to latest.
