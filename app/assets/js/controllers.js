@@ -16,7 +16,7 @@
       $scope.name = 'Scope for BookController';
       $scope.wishListCount = 0;
 
-      $scope.addToWishList = (book) => {
+      $scope.addToWishList = () => {
         $scope.wishListCount += 1;
       };
       $scope.$watch('wishListCount', (newValue, oldValue) => {
