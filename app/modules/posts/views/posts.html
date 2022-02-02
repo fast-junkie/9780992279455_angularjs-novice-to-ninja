@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col">
+   <div class="d-grid gap-3 mt-3">
+     <div class="p-2 bg-light border" ng-repeat="post in posts track by $index">
+        <h4 class="post-title m-0">
+          <a ui-sref="singlePost({id:post.id, permalink:post.permalink})" ng-bind="post.title"></a>
+        </h4>
+        <p>
+          By: <span class="author" ng-bind="post.author"></span> 
+          | <span class="date-published" ng-bind="post.datePublished"></span>
+        </p>
+     </div>
+   </div>
+  </div>
+</div>

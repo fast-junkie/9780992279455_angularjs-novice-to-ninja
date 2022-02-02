@@ -6,10 +6,10 @@ module.exports = (config) => {
 
     files: [
       'lib/angular/angular.js',
+      'lib/angular-mocks/angular-mocks.js',
       'lib/angular-route/angular-route.js',
-      '../node_modules/angular-mocks/angular-mocks.js',
-      'core/**/*.js',
-      'view*/**/*.js',
+      'lib/@uirouter/angularjs/release/angular-ui-router.js',
+      'modules/**/*.js',
     ],
 
     autoWatch: true,

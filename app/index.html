@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" class="h-100">
   <head>
+    <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./lib/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./assets/css/app.css">
+    <noscript>
+      <meta 
+        http-equiv="refresh" 
+        content="0;url=https://duckduckgo.com/?q=%22javascript%22%20%28%22paranoia%22%20OR%20%22fear%22%29">
+    </noscript>
     <script src="./lib/scriptjs/dist/script.min.js"></script>
     <script>
       $script([
           './lib/jquery/dist/jquery.min.js',
           './lib/bootstrap/dist/js/bootstrap.bundle.js',
           './lib/angular/angular.min.js',
+          './lib/angular-sanitize/angular-sanitize.min.js',
+          './lib/@uirouter/angularjs/release/angular-ui-router.min.js',
           './assets/js/app.js',
           './assets/js/routes.js',
           './assets/js/directives.js',
@@ -31,9 +39,23 @@
     </script>
     <title>The Single Page Blogger</title>
   </head>
-  <body>
-    <div class="container">
-      <p><i>The Single Page Blogger <app-version/></i></p>
-    </div>
+  <body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+      <div class="container">
+        <div class="mt-4 p-3 bg-primary text-white rounded text-center">
+          <h1>The Single Page Blogger</h1>
+          <p>One stop blogging solution</p>
+      </div>
+        <div ui-view class="main-content">
+          <img src="./assets/img/loading.svg" alt="Please wait...">
+          loading...
+        </div>
+      </div>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <p class="text-center"><i>The Single Page Blogger <app-version/></i></p>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-sm-8 offset-sm-2">
+    <div class="card mt-3">
+      <div class="card-header">
+        <button class="btn-close float-end" ng-click="closePost()"></button>
+      </div>
+      <div class="card-body">
+        <h4 class="post-title m-0" ng-bind="singlePost.title"></h4>
+        <p>
+          By: <span class="author" ng-bind="singlePost.author"></span> 
+          | <span class="date-published" ng-bind="singlePost.datePublished"></span>
+        </p>
+        <div class="post-content" ng-bind-html="singlePost.content | trustAsHtml"></div>
+      </div>
+    </div>
+  </div>
+</div> 
