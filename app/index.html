@@ -23,16 +23,10 @@
           './lib/angular-sanitize/angular-sanitize.min.js',
           './lib/@uirouter/angularjs/release/angular-ui-router.min.js',
           './assets/js/app.js',
-          './assets/js/routes.js',
           './assets/js/directives.js',
           './assets/js/filters.js',
           './assets/js/services.js',
           './assets/js/controllers.js',
-          './modules/posts/postModule.js',
-          './modules/posts/js/directives.js',
-          './modules/posts/js/filters.js',
-          './modules/posts/js/services.js',
-          './modules/posts/js/controllers.js',
         ], () => {
         angular.bootstrap(document, ['spBlogger']);
       });
@@ -42,10 +36,10 @@
   <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
       <div class="container">
-        <div class="mt-4 p-3 bg-primary text-white rounded text-center">
+        <div class="my-4 p-3 bg-primary text-white rounded text-center">
           <h1>The Single Page Blogger</h1>
           <p>One stop blogging solution</p>
-      </div>
+        </div>
         <div ui-view class="main-content">
           <img src="./assets/img/loading.svg" alt="Please wait...">
           loading...

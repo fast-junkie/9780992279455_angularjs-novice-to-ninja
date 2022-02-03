@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-3">
+    <ul class="nav nav-pills flex-column on-click-make-active">
+      <li class="nav-item">
+        <a ui-sref="admin.postViewAll" ui-sref-active="active" class="nav-link">
+          All Posts
+        </a>
+      </li>
+      <li class="nav-item">
+        <a ui-sref="admin.postNew" ui-sref-active="active" class="nav-link">
+          Add Post
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-9 border-start">
+    <div ui-view></div>
+  </div>
+</div>

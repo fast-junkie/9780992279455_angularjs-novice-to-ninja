@@ -9,7 +9,7 @@ module.exports = (config) => {
       'lib/angular-mocks/angular-mocks.js',
       'lib/angular-route/angular-route.js',
       'lib/@uirouter/angularjs/release/angular-ui-router.js',
-      'modules/**/*.js',
+      'assets/**/*.js',
     ],
 
     autoWatch: true,

@@ -16,5 +16,10 @@ This was done as part of a self imposed read and code along... of _&quot;OLD&quo
 >
 > Switched testing browser to:  
 > `"firefox": { "karma-firefox-launcher": "^2.1.2", }`  
->
-> Opted to upgrade all dependancies to latest.
+
+### Summary
+---
+
+Opted to upgrade all `package.json` dependancies to latest.
+
+I also opted to reduced the amount of module files. For me it was just easier to consolidate everything to a basic _(singular)_ `app`, `controllers`, `directives`, `services` and `filters` files. 

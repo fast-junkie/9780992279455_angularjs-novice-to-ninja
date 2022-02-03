@@ -1,0 +1,47 @@
+<form name="newPostForm" role="form" novalidate>
+  <div class="row mb-4 mt-2 position-relative">
+    <label class="col-lg-2 col-md-12 col-form-label col-form-label-sm" for="title">Post Title</label>
+    <div class="col-lg-10 col-md-12">
+      <input type="text" id="title" class="form-control form-control-sm" name="title" placeholder="Title"
+        ng-class="{'is-invalid':newPostForm.title.$dirty && newPostForm.title.$invalid}"  
+        ng-model="post.title" 
+        ng-required="true">
+      <div class="invalid-tooltip" ng-show="newPostForm.title.$dirty && newPostForm.title.$invalid">Title is mandatory...</div>
+    </div>
+  </div>
+  <div class="row mb-4 mt-2 position-relative">
+    <label class="col-lg-2 col-md-12 col-form-label col-form-label-sm" for="content">Content</label>
+    <div class="col-lg-10 col-md-12">
+        <textarea id="content" class="form-control form-control-sm" name="content" cols="8" rows="6" placeholder="Content"
+          ng-class="{'is-invalid':newPostForm.content.$dirty && newPostForm.content.$invalid}"
+          ng-model="post.content" 
+          ng-required="true"></textarea>
+        <span class="invalid-tooltip" ng-show="newPostForm.content.$dirty && newPostForm.content.$invalid">You need to have some content...</span>
+    </div>
+  </div>
+  <div class="row mb-4 mt-2 position-relative">
+    <label for="tags" class="col-lg-2 col-md-12 col-form-label col-form-label-sm">Tags</label>
+    <div class="col-lg-10 col-md-12">
+        <input type="text" id="tags" class="form-control form-control-sm" name="tags" placeholder="Comma separated tags" 
+          ng-class="{'is-invalid':newPostForm.tags.$dirty && newPostForm.tags.$invalid}"
+          ng-pattern="/^[\w,]+$/" 
+          ng-model="post.tags">
+        <span class="invalid-tooltip" ng-show="newPostForm.tags.$dirty && newPostForm.tags.$invalid">Sorry! No special characters allowed here...</span>
+    </div>
+  </div>
+  <div class="row mb-4 mt-2 position-relative">
+    <label for="keywords" class="col-lg-2 col-md-12 col-form-label col-form-label-sm">Keywords</label>
+    <div class="col-lg-10 col-md-12">
+        <input type="text" id="keywords" class="form-control" name="keywords" placeholder="Comma separated keywords"
+          ng-class="{'is-invalid':newPostForm.keywords.$dirty && newPostForm.keywords.$invalid}" 
+          ng-pattern="/^[\w,]+$/"  
+          ng-model="post.keywords">
+        <span class="invalid-tooltip" ng-show="newPostForm.keywords.$dirty && newPostForm.keywords.$invalid">Sorry! No special characters allowed here...</span>
+    </div>
+  </div>
+  <div class="row mb-3">
+      <div class="offset-lg-2 col-lg-10 col-md-12">
+          <button type="submit" class="btn btn-sm btn-success" ng-disabled="newPostForm.$invalid">Add Post</button>
+      </div>
+  </div>
+</form>

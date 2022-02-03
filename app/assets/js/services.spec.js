@@ -1,5 +1,5 @@
 describe('postService Test', () => {
-  beforeEach(module('spBlogger.posts.services'));
+  beforeEach(module('spBlogger.services'));
 
   it('postService should return 4 post objects', inject((postService) => {
     expect(postService.getAll().length).toBe(4);
