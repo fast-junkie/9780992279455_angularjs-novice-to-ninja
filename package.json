@@ -9,6 +9,7 @@
     "@uirouter/angularjs": "^1.0.30",
     "angular": "^1.8.2",
     "angular-loader": "^1.8.2",
+    "angular-resource": "^1.8.2",
     "angular-route": "^1.8.2",
     "angular-sanitize": "^1.8.2",
     "bootstrap": "^5.1.3",

@@ -1,6 +1,7 @@
 (() => {
   angular
     .module('spBlogger', [
+      'ngResource',
       'ui.router',
       'spBlogger.controllers',
       'spBlogger.services',
