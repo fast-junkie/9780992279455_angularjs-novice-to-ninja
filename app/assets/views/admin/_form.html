@@ -5,6 +5,7 @@
       ng-class="{'is-invalid':newPostForm.title.$dirty && newPostForm.title.$invalid}"  
       ng-model="post.title" 
       ng-required="true">
+    <div>Permalink: <i>/posts/<span ng-bind="post._id"></span>/<span ng-bind="post.title | permalink"></span></i></div>
     <div class="invalid-tooltip" ng-show="newPostForm.title.$dirty && newPostForm.title.$invalid">Title is mandatory...</div>
   </div>
 </div>
@@ -15,6 +16,7 @@
         ng-class="{'is-invalid':newPostForm.content.$dirty && newPostForm.content.$invalid}"
         ng-model="post.content" 
         ng-required="true"></textarea>
+      <div class="float-end"><span ng-bind="post.content | wordCount"></span> words</div>
       <span class="invalid-tooltip" ng-show="newPostForm.content.$dirty && newPostForm.content.$invalid">You need to have some content...</span>
   </div>
 </div>

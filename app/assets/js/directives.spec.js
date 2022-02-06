@@ -14,9 +14,8 @@ describe('Directive Test', () => {
     scope.$digest();
   }));
 
-  it('Should initialize comments div with 2 comments', inject(() => {
+  it('Should initialize comments div', inject(() => {
     scope.singlePost = { comments: [{ content: 'test', author: 'test' }, { content: 'test1', author: 'test1' }] };
-    console.info(elem);
     expect(elem/* .find('.single-comment') */.length).toBe(1);
   }));
 });
