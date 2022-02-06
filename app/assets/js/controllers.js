@@ -30,9 +30,14 @@
   angular
     .module('spBlogger.controllers')
     .controller('AdminController', _adminController);
-  _adminController.$inject = [];
-  function _adminController() {
-    console.info('Admin controller loaded...');
+  _adminController.$inject = ['$scope', '$state', 'authService', 'user'];
+  function _adminController($scope, $state, authService, user) {
+    $scope.logout = function _logout() {
+      authService.logout()
+        .then(() => {
+          $state.go('login');
+        });
+    };
   }
 
   /**
@@ -89,6 +94,26 @@
           });
         });
       }
+    };
+  }
+
+  /**
+   * Login controller
+   */
+  angular
+    .module('spBlogger.controllers')
+    .controller('LoginController', _loginController);
+  _loginController.$inject = ['$scope', '$state', 'authService'];
+  function _loginController($scope, $state, authService) {
+    $scope.buttonText = 'Login';
+    $scope.login = function _login() {
+      $scope.buttonText = 'Logging in...';
+      authService
+        .login($scope.credentials.username, $scope.credentials.password)
+        .then(() => { $state.go('admin.postViewAll'); }, () => { $scope.invalidLogin = true; })
+        .finally(() => {
+          $scope.buttonText = 'Login';
+        });
     };
   }
 })();

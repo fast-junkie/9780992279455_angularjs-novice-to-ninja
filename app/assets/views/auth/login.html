@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6 col-sm-8 offset-md-3 offset-sm-2 px-3">
+    <h3 class="text-center login-title">Login to Admin Panel</h3>
+    <div class="account-wall">
+      <form class="form-signin" ng-submit="login()">
+        <div ng-show="invalidLogin" class="alert alert-danger">Invalid username/password</div>
+        <input type="text" class="form-control form-control-sm mb-1" placeholder="Username" 
+          ng-model="credentials.username" ng-required="true" />
+        <input type="password" class="form-control form-control-sm mb-1" autocomplete="off" placeholder="Password" 
+          ng-model="credentials.password" ng-required="true" />
+        <div class="d-grid">
+          <button type="submit" class="btn btn-sm btn-primary float-end" ng-bind="buttonText"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

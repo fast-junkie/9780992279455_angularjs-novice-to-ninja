@@ -3,12 +3,13 @@
 
   angular
     .module('spBlogger.services')
-    .value('API_ENDPOINT', '/api/posts/:id');
+    .value('API_ENDPOINT', '/api/posts/:id')
+    .value('AUTH_ENDPOINT', '/login')
+    .value('LOGOUT_ENDPOINT', '/logout');
 
   angular
     .module('spBlogger.services')
     .factory('postService', _postService);
-
   _postService.$inject = [];
   function _postService() {
     return {
@@ -94,7 +95,6 @@
   angular
     .module('spBlogger.services')
     .factory('Post', _post);
-
   _post.$inject = ['$resource', 'API_ENDPOINT'];
   function _post($resource, API_ENDPOINT) {
     return $resource(API_ENDPOINT, { id: '@_id' }, {
@@ -107,11 +107,34 @@
   angular
     .module('spBlogger.services')
     .service('popupService', _popupService);
-
   _popupService.$inject = ['$window'];
   function _popupService($window) {
     this.showPopup = function _showPopup(message) {
       return $window.confirm(message);
     };
+  }
+
+  angular
+    .module('spBlogger.services')
+    .factory('authService', _authService);
+  _authService.$inject = ['$http', '$cookies', 'AUTH_ENDPOINT', 'LOGOUT_ENDPOINT'];
+  function _authService($http, $cookies, AUTH_ENDPOINT, LOGOUT_ENDPOINT) {
+    const auth = {};
+    auth.login = function _login(username, password) {
+      return $http.post(AUTH_ENDPOINT, { username, password })
+        .then((response) => {
+          auth.user = response.data;
+          $cookies.put('user', JSON.stringify(auth.user));
+          return auth.user;
+        });
+    };
+    auth.logout = function _logout() {
+      return $http.post(LOGOUT_ENDPOINT)
+        .then(() => {
+          auth.user = undefined;
+          $cookies.remove('user');
+        });
+    };
+    return auth;
   }
 })();

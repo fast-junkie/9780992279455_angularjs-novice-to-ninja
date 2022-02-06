@@ -7,9 +7,9 @@ router
   .route('/posts')
   .get((req, res) => {
     Post.find((err, posts) => {
-      console.info('posts', posts);
       if (err) res.send(err);
       res.json(posts);
+      return false;
     });
   })
   .post((req, res) => {

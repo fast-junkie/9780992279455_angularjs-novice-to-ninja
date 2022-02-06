@@ -1,6 +1,7 @@
 (() => {
   angular
     .module('spBlogger', [
+      'ngCookies',
       'ngResource',
       'ui.router',
       'spBlogger.controllers',
@@ -37,6 +38,11 @@
         url: '/admin',
         abstract: true,
         controller: 'AdminController',
+        resolve: {
+          user: ['authService', '$q', function _user(authService, $q) {
+            return authService.user || $q.reject({ unAuthorized: true });
+          }],
+        },
         templateUrl: 'assets/views/admin/admin-home.html',
       })
       .state('admin.postNew', {
@@ -54,14 +60,31 @@
         controller: 'PostListController',
         templateUrl: 'assets/views/admin/admin-all-posts.html',
       });
+
+    // Auth...
+    $stateProvider
+      .state('login', {
+        url: '/login',
+        controller: 'LoginController',
+        templateUrl: 'assets/views/auth/login.html',
+      });
   }
 
   angular
     .module('spBlogger')
     .run(_run);
 
-  _run.$inject = ['$state'];
-  function _run($state) {
+  _run.$inject = ['$state', '$rootScope', '$cookies', 'authService'];
+  function _run($state, $rootScope, $cookies, authService) {
     $state.go('allPosts');
+
+    $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, error) => {
+      if (error.unAuthorized) {
+        $state.go('login');
+      } else if (error.authorized) {
+        $state.go('admin.postViewAll');
+      }
+    });
+    authService.user = $cookies.get('user');
   }
 })();
