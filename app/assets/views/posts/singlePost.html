@@ -8,9 +8,12 @@
         <h4 class="post-title m-0" ng-bind="singlePost.title"></h4>
         <p>
           By: <span class="author" ng-bind="singlePost.author"></span> 
-          | <span class="date-published" ng-bind="singlePost.datePublished"></span>
+          | <span class="date-published" ng-bind="singlePost.datePublished | date: 'yyyy-MM-dd HH:mm:ss'"></span>
         </p>
         <div class="post-content" ng-bind-html="singlePost.content | trustAsHtml"></div>
+      </div>
+      <div class="card-body">
+        <comments post-instance="singlePost"></comments>
       </div>
     </div>
   </div>

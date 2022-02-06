@@ -1,0 +1,32 @@
+<div class="comments">
+  <div class="row mb-3 position-relative">
+    <label class="col-lg-2 col-md-12 col-form-label col-form-label-sm" for="comment">Comments</label>
+    <div class="col-lg-10 col-md-12">
+      <textarea id="comment" class="form-control form-control-sm" name="comment" cols="40" rows="6" placeholder="Type your comment here"
+        ng-model="comment.content"></textarea>
+    </div>
+  </div>
+  <div class="row mb-3 position-relative">
+    <label for="author" class="col-lg-2 col-md-12 col-form-label col-form-label-sm">Author</label>
+    <div class="col-lg-10 col-md-12">
+      <input type="text" id="author" class="form-control form-control-sm" name="tags" placeholder="Type your name here" 
+        ng-model="comment.author">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="offset-lg-2 col-lg-10 col-md-12">
+      <button type="submit" class="btn btn-sm btn-success" ng-click="saveComment()">Save</button>
+    </div>
+  </div>
+  <div class="row mb-3 border-top">
+    <div class="col-12 comments-list">
+      <div class="single-comment" ng-repeat="comment in postInstance.comments">
+        <div class="content" ng-bind="comment.content"></div>
+        <div class="info">
+          Author: <span ng-bind="comment.author"></span> | 
+          On: <span ng-bind="comment.datePublished | date:'yyyy-MM-dd HH:mm:ss'"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
