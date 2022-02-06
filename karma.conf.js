@@ -8,6 +8,7 @@ module.exports = (config) => {
       'lib/angular/angular.js',
       'lib/angular-mocks/angular-mocks.js',
       'lib/angular-route/angular-route.js',
+      'lib/angular-resource/angular-resource.js',
       'lib/@uirouter/angularjs/release/angular-ui-router.js',
       'assets/**/*.js',
     ],
