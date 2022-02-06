@@ -1,1 +1,16 @@
-Admin all posts...
+<table class="table">
+  <thead>
+    <tr>
+      <th>View All Posts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="post in posts | orderBy:'-_id'">
+      <td ng-bind="post.title"></td>
+      <td>
+        <a class="text-primary" ui-sref="admin.postUpdate({id:post._id})" title="Edit Post"><i class="bi bi-pencil"></i></a>
+        <a class="pointer text-danger" ng-click="deletePost(post)" title="Delete Post"><i class="bi bi-trash"></i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>

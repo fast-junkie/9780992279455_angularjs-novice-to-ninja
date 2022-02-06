@@ -3,6 +3,10 @@
 
   angular
     .module('spBlogger.services')
+    .value('API_ENDPOINT', '/api/posts/:id');
+
+  angular
+    .module('spBlogger.services')
     .factory('postService', _postService);
 
   _postService.$inject = [];
@@ -84,6 +88,30 @@
           .forEach((v) => { if (v.id === Number(id)) post = v; });
         return post;
       },
+    };
+  }
+
+  angular
+    .module('spBlogger.services')
+    .factory('Post', _post);
+
+  _post.$inject = ['$resource', 'API_ENDPOINT'];
+  function _post($resource, API_ENDPOINT) {
+    return $resource(API_ENDPOINT, { id: '@_id' }, {
+      update: {
+        method: 'PUT',
+      },
+    });
+  }
+
+  angular
+    .module('spBlogger.services')
+    .service('popupService', _popupService);
+
+  _popupService.$inject = ['$window'];
+  function _popupService($window) {
+    this.showPopup = function _showPopup(message) {
+      return $window.confirm(message);
     };
   }
 })();

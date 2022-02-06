@@ -10,7 +10,7 @@
 
   angular
     .module('spBlogger')
-    .value('version', 'v0.6.5');
+    .value('VERSION', 'v0.6.5');
 
   angular
     .module('spBlogger')

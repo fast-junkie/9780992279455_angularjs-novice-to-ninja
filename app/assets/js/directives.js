@@ -5,12 +5,12 @@
     .module('spBlogger.directives')
     .directive('appVersion', _appVersion);
 
-  _appVersion.$inject = ['version'];
-  function _appVersion(version) {
+  _appVersion.$inject = ['VERSION'];
+  function _appVersion(VERSION) {
     return {
       restrict: 'AE',
       link(scope, elem) {
-        elem.html(version);
+        elem.html(VERSION);
       },
     };
   }
